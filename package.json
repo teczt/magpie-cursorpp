@@ -1,0 +1,49 @@
+{
+  "name": "magpie-agent-cursorpp",
+  "version": "0.2.0",
+  "description": "Magpie Agent plugin that synchronizes models and routing groups to Cursor++",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teczt/magpie-cursorpp.git"
+  },
+  "homepage": "https://github.com/teczt/magpie-cursorpp#readme",
+  "bugs": {
+    "url": "https://github.com/teczt/magpie-cursorpp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "agent.js",
+    "cursorpp.mjs",
+    "README.md",
+    "README_EN.md",
+    "LICENSE"
+  ],
+  "magpie": {
+    "agent": "./agent.js",
+    "name": "Cursor++",
+    "summary": {
+      "zh": "将 Magpie 的模型和路由组同步到 Cursor++，自动适配协议、思考等级、上下文和图片能力。",
+      "en": "Sync Magpie models and routing groups to Cursor++, with protocols, reasoning levels, context limits and image capabilities."
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check agent.js && node --check cursorpp.mjs && node --check test.mjs",
+    "test": "node --test test.mjs"
+  },
+  "keywords": [
+    "magpie",
+    "magpie-plugin",
+    "magpie-agent",
+    "cursor",
+    "cursor2plus",
+    "byok",
+    "llm-gateway"
+  ]
+}

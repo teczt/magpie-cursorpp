@@ -14,12 +14,18 @@ Synchronize models and routing groups from [Magpie](https://usemagpie.ai) to [Cu
 
 ## Installation
 
-Install Magpie, Cursor, and Cursor++ first. Enable the Cursor++ BYOK Server, which listens on `127.0.0.1:39831` by default.
+Install Magpie, Cursor, and Cursor++ first. Enable the Cursor++ BYOK Server, which listens on `127.0.0.1:39831` by default. The plugin supports macOS, Windows, and Linux, writing to `~/.ccursor/providers.json` in the current user's home directory.
 
 Find the plugin in **Magpie → Plugins → Discover → Unofficial**, or run:
 
 ```sh
 magpie plugin add github:teczt/magpie-cursorpp
+```
+
+Once published to npm, it can also be installed with:
+
+```sh
+magpie plugin add npm:magpie-agent-cursorpp
 ```
 
 Open **Agents → Cursor++** and set Provider to `magpie`, or run:
@@ -32,7 +38,7 @@ Choose a model whose name starts with `magpie/` in Cursor. Cursor++ normally rel
 
 ## Configuration ownership
 
-While connected, the plugin manages the entire **`providers` array** in `~/.ccursor/providers.json`, creating three providers:
+While connected, the plugin manages the entire **`providers` array** in `~/.ccursor/providers.json` (for example, `C:\Users\<username>\.ccursor\providers.json` on Windows), creating three providers:
 
 | Provider ID | Protocol |
 | --- | --- |
@@ -69,6 +75,8 @@ magpie cursorpp provider magpie
 ```
 
 `agent.js` declares the Agent and forwards its input. `cursorpp.mjs` performs pure data conversion without filesystem or network access. Magpie handles writes, catalog updates, and restoring the original configuration.
+
+Magpie provides the plugin runtime, so users do not need to install Node.js. Node.js 20 is only needed to develop and test this repository.
 
 ## License
 

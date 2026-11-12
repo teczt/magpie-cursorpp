@@ -1,6 +1,6 @@
 {
   "name": "magpie-agent-cursorpp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Magpie Agent plugin that synchronizes models and routing groups to Cursor++",
   "type": "module",
   "license": "MIT",
@@ -13,7 +13,8 @@
     "url": "https://github.com/teczt/magpie-cursorpp/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "files": [
     "agent.js",

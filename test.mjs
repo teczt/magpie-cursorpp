@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { agent } from "./agent.js";
 import { buildProviders, cursorModel, cursorppConfig, protocolOf } from "./cursorpp.mjs";
 
 const samples = [
@@ -7,6 +8,12 @@ const samples = [
   { id: "codex/gpt", name: "GPT", context: 922000, output: 128000, images: true, efforts: ["none", "medium", "high", "ultra"], native_endpoints: ["/v1/responses"] },
   { id: "group/deepseek", name: "DeepSeek", context: 1048576, output: 131072, images: true, efforts: ["none", "high"] },
 ];
+
+test("使用 Cursor++ 的跨平台用户配置目录，不依赖 macOS 应用路径", () => {
+  assert.equal(agent.dir, "~/.ccursor");
+  assert.equal(agent.config, "~/.ccursor/providers.json");
+  assert.equal(agent.dir.includes("/Applications/"), false);
+});
 
 test("选择协议，包括支持三种入口的路由组", () => {
   assert.equal(protocolOf(samples[0]), "anthropic");
